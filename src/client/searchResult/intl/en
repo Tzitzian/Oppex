@@ -1,0 +1,5 @@
+export default {
+    applicationDescription: 'You can find below the search functionality that ' +
+    'works agains the Oppex api.',
+    searchDescription: 'Search'
+}
