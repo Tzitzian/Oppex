@@ -3,6 +3,9 @@
  */
 
 import alt from '../app/alt';
+import Superagent from 'superagent';
+
+
 
 class SearchResultActions {
     constructor() {
@@ -13,23 +16,17 @@ class SearchResultActions {
     }
 
     getResults(payload) {
-        let url = 'http://api.alpha.oppex.com/api/notices';
-        let params = {
-            description: 'bill'
-            // @TODO : change this to -> description: payload.description
-            // when "Uncaught ReferenceError: $ is not defined" is fixed for
-            // the ajax call below
-        };
 
-
-        $.ajax({ url: url, data: params })
-            .done((data) => {
-                this.actions.getResultsSuccess(data);
-            })
-            .fail((jqXhr) => {
-                this.actions.getResultsFail(jqXhr);
-            });
+        Superagent
+            .get(`http://api.alpha.oppex.com/api/notices?fields.description=`+payload, res => {
+            if (res.status === 200 && res.body.items) {
+                this.actions.getResultsSuccess(res.body.items);
+            }
+        });
     }
 }
 
 export default alt.createActions(SearchResultActions);
+
+
+

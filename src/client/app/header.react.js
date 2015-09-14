@@ -22,6 +22,7 @@ export default class Header extends Component {
           <li><Link to="home">{header.home}</Link></li>
           <li><Link to="todos">{header.todos}</Link></li>
           <li><Link to="me">{header.me}</Link></li>
+          <li><a href="/search">{header.search}</a></li>
           {!viewer &&
             <li><Link to="login">{header.login}</Link></li>
           }

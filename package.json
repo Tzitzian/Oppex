@@ -12,6 +12,7 @@
     "node": "0.12.x"
   },
   "dependencies": {
+    "alt": "^0.17.1",
     "autoprefixer-loader": "^2.0.0",
     "babel": "^5.0.8",
     "babel-core": "^5.0.8",
@@ -75,6 +76,8 @@
     "serve-favicon": "^2.2.0",
     "style-loader": "^0.12.0",
     "stylus-loader": "^1.0.0",
+    "superagent": "^0.18.2",
+    "underscore": "^1.8.3",
     "url-loader": "^0.5.5",
     "useragent": "^2.1.7",
     "validator": "^4.0.0",

@@ -25,13 +25,28 @@ class SearchResult extends React.Component {
 
     componentDidUpdate(prevProps) {
         if (!isEqual(prevProps.params, this.props.params)) {
-            SearchResultActions.getResults(this.props.params);
+            console.log(this.props.params);
+            //SearchResultActions.getResults(this.props.params);
         }
     }
 
     onChange(state) {
         this.setState(state);
     }
+
+    onFormSubmit(e){
+        e.preventDefault();
+        console.log(e);
+        console.log('this');
+        console.log(this);
+        SearchResultActions.getResults('greg');
+    }
+    onKeyDown(e) {
+        if (e.key === 'Enter')
+            e.preventDefault();
+            SearchResultActions.getResults('bill');
+    }
+
 
     render() {
         let searchResult = this.state.items.map((item, index) => {
@@ -56,6 +71,20 @@ class SearchResult extends React.Component {
 
         return (
             <div className='container'>
+                <form onSubmit={::this.onFormSubmit}>
+                        <legend>Search Oppex</legend>
+                        <input
+                            autoFocus
+                            name="searchTerm"
+                            //placeholder='search term goes here'
+                            onKeyDown={::this.onKeyDown}
+                            />
+                        <br />
+                        <button
+                            type="submit"
+                            children='Submit'
+                            />
+                </form>
                 <div className='list-group'>
                     {searchResult}
                 </div>

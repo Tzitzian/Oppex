@@ -1,5 +1,7 @@
 export default {
     applicationDescription: 'You can find below the search functionality that ' +
     'works agains the Oppex api.',
-    searchDescription: 'Search'
+    searchDescription: 'Search',
+    title: 'Oppex Search - C.A',
+    legend: 'Search the Oppex API'
 }

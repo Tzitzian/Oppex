@@ -1,12 +1,13 @@
 export default {
   footer: {
-    madeByHtml: `made by <a href="https://twitter.com/steida">steida</a>`
+    madeByHtml: `© Cristian Andrei - 2015 `
   },
   header: {
-    h1Html: `<a href="https://github.com/este/este">Este.js</a> App`,
+    h1Html: `Oppex Search - Cristian Andrei`,
     home: 'Home',
     login: 'Login',
     me: 'Me (protected)',
-    todos: 'Todos'
+    todos: 'Todos',
+    search: 'Search',
   }
 };
