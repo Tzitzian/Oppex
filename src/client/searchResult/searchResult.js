@@ -25,8 +25,7 @@ class SearchResult extends React.Component {
 
     componentDidUpdate(prevProps) {
         if (!isEqual(prevProps.params, this.props.params)) {
-            console.log(this.props.params);
-            //SearchResultActions.getResults(this.props.params);
+            SearchResultActions.getResults(this.props.params);
         }
     }
 
@@ -36,15 +35,15 @@ class SearchResult extends React.Component {
 
     onFormSubmit(e){
         e.preventDefault();
-        console.log(e);
-        console.log('this');
-        console.log(this);
-        SearchResultActions.getResults('greg');
+        let searchTerm = this.refs.searchTerm.getDOMNode().value;
+        SearchResultActions.getResults(searchTerm);
     }
     onKeyDown(e) {
-        if (e.key === 'Enter')
+        if (e.key === 'Enter') {
             e.preventDefault();
-            SearchResultActions.getResults('bill');
+            let searchTerm = this.refs.searchTerm.getDOMNode().value;
+            SearchResultActions.getResults(searchTerm);
+        }
     }
 
 
@@ -75,8 +74,8 @@ class SearchResult extends React.Component {
                         <legend>Search Oppex</legend>
                         <input
                             autoFocus
-                            name="searchTerm"
-                            //placeholder='search term goes here'
+                            ref="searchTerm"
+                            placeholder='search term goes here'
                             onKeyDown={::this.onKeyDown}
                             />
                         <br />
